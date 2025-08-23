@@ -1,96 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Advance Password Generator</title>
-    <!-- Icons -->
-    <script
-      src="https://kit.fontawesome.com/38f8bca810.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.2/tsparticles.bundle.min.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advance Password Generator</title>
 
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/38f8bca810.js" crossorigin="anonymous"></script>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css">
-  </head>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet" />
 
-  <body>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Loader -->
+  <div id="loader-container">
+    <span class="loader"></span>
+  </div>
 
+  <!-- Background Stars -->
+  <div class="background" id="background"></div>
 
-<div class="background">
-  <div class="stars"></div>
-  <div class="shooting-star"></div>
-  <div class="shooting-star"></div>
-  <div class="shooting-star"></div>
-  <div class="shooting-star"></div>
- <div class="shooting-star"></div>
-</div>
+  <!-- Password Generator UI -->
+  <div class="wrapper">
+    <h2 class="heading">Password Generator</h2>
 
-    <div class="wrapper">
-      <h2 class="heading">Password Generator</h2>
-
-      <div class="password__cont">
-        <div class="password" id="passwordDisplay">P4$5WOrD!</div>
-        <div class="copy__icon" id="copy__btn">
-          <i class="fa-regular fa-copy fa-lg"></i>
-        </div>
-      </div>
-
-      <div class="password__setter">
-        <div class="password__char">
-          <div>
-            <div class="text">Character length</div>
-            <div class="pass__length" id="passLength">12</div>
-          </div>
-          <input name="range" class="slider" min="4" max="32" type="range" value="12" id="ranger" title="Password Length" />
-        </div>
-
-        <ul class="setter__list">
-          <li class="checkbox__item">
-            <input type="checkbox" id="uppercase" name="uppercase" class="check__box" checked />
-            <label for="uppercase">Include Uppercase Letters</label>
-          </li>
-          <li class="checkbox__item">
-            <input type="checkbox" id="lowercase" name="lowercase" class="check__box" checked />
-            <label for="lowercase">Include Lowercase Letters</label>
-          </li>
-          <li class="checkbox__item">
-            <input type="checkbox" id="number" name="number" class="check__box" checked />
-            <label for="number">Include Numbers</label>
-          </li>
-          <li class="checkbox__item">
-            <input type="checkbox" id="symbol" name="symbol" class="check__box" checked />
-            <label for="symbol">Include Symbols</label>
-          </li>
-        </ul>
-
-        <div class="strength">
-          <div class="strength__text">STRENGTH</div>
-          <div id="quality" class="strength__quality">Good</div>
-          <div class="bar__div">
-            <span class="strength__bars"></span>
-            <span class="strength__bars"></span>
-            <span class="strength__bars"></span>
-            <span class="strength__bars"></span>
-          </div>
-        </div>
-
-        <button class="generate__btn" name="btn" id="generate">
-          GENERATE <i class="fa-solid fa-arrow-right"></i>
-        </button>
+    <div class="password__cont">
+      <div class="password" id="passwordDisplay">P4$5WOrD!</div>
+      <div class="copy__icon" id="copy__btn">
+        <i class="fa-regular fa-copy fa-lg"></i>
       </div>
     </div>
 
-    
-    
-    <script src="script.js"></script>
-  </body>
+    <div class="password__setter">
+      <div class="password__char">
+        <div>
+          <div class="text">Character length</div>
+          <div class="pass__length" id="passLength">12</div>
+        </div>
+        <input name="range" class="slider" min="4" max="32" type="range" value="12" id="ranger" title="Password Length" />
+      </div>
+
+      <ul class="setter__list">
+        <li class="checkbox__item">
+          <input type="checkbox" id="uppercase" checked />
+          <label for="uppercase">Include Uppercase Letters</label>
+        </li>
+        <li class="checkbox__item">
+          <input type="checkbox" id="lowercase" checked />
+          <label for="lowercase">Include Lowercase Letters</label>
+        </li>
+        <li class="checkbox__item">
+          <input type="checkbox" id="number" checked />
+          <label for="number">Include Numbers</label>
+        </li>
+        <li class="checkbox__item">
+          <input type="checkbox" id="symbol" checked />
+          <label for="symbol">Include Symbols</label>
+        </li>
+      </ul>
+
+      <div class="strength">
+        <div class="strength__text">STRENGTH</div>
+        <div id="quality" class="strength__quality">Good</div>
+        <div class="bar__div">
+          <span class="strength__bars"></span>
+          <span class="strength__bars"></span>
+          <span class="strength__bars"></span>
+          <span class="strength__bars"></span>
+        </div>
+      </div>
+
+      <button class="generate__btn" id="generate">
+        GENERATE <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>

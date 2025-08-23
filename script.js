@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // --- Password Generator ---
   const passDisplay = document.getElementById('passwordDisplay');
   const rangeInput = document.getElementById('ranger');
   const passLengthText = document.getElementById('passLength');
@@ -35,23 +36,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (/[0-9]/.test(password)) strength++;
     if (/[^A-Za-z0-9]/.test(password)) strength++;
 
-    // Set color and label
     let color = 'red';
     let label = 'Very Weak';
 
-    if (strength === 1) {
-      color = 'red';
-      label = 'Weak';
-    } else if (strength === 2) {
-      color = 'orange';
-      label = 'Fair';
-    } else if (strength === 3) {
-      color = 'yellow';
-      label = 'Good';
-    } else if (strength === 4) {
-      color = 'green';
-      label = 'Strong';
-    }
+    if (strength === 1) { color = 'red'; label = 'Weak'; }
+    else if (strength === 2) { color = 'orange'; label = 'Fair'; }
+    else if (strength === 3) { color = 'yellow'; label = 'Good'; }
+    else if (strength === 4) { color = 'green'; label = 'Strong'; }
 
     bars.forEach((bar, index) => {
       bar.style.backgroundColor = index < strength ? color : '#444';
@@ -85,49 +76,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
   generateBtn.addEventListener('click', generatePassword);
   rangeInput.dispatchEvent(new Event('input')); // Initialize
+
+
+  // --- Background Stars ---
+  const background = document.getElementById("background");
+  for (let i = 0; i < 100; i++) {
+    const star = document.createElement("div");
+    star.classList.add("star");
+
+    // random position
+    star.style.left = Math.random() * 100 + "vw";
+    star.style.top = Math.random() * 100 + "vh";
+
+    // random color red or white
+    star.style.backgroundColor = Math.random() > 0.5 ? "white" : "red";
+
+    // random size
+    const size = Math.random() * 2 + 1 + "px";
+    star.style.width = size;
+    star.style.height = size;
+
+    // random animation speed
+    star.style.animationDuration = (Math.random() * 5 + 5) + "s";
+
+    background.appendChild(star);
+  }
 });
 
-const canvas = document.getElementById('bg-canvas');
-const ctx = canvas.getContext('2d');
+// --- Loader Fade-out ---
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader-container");
 
-// Set canvas size to window size
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+  setTimeout(() => {
+    loader.style.opacity = "0";
+    loader.style.transition = "opacity 0.5s ease";
 
-// Track mouse position
-let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
-
-window.addEventListener('mousemove', (e) => {
-  mouse.x = e.clientX;
-  mouse.y = e.clientY;
-});
-
-function createGradient() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  // Create a gradient effect that shifts color
-  const gradient = ctx.createRadialGradient(
-    mouse.x, mouse.y, 0,
-    mouse.x, mouse.y, 500
-  );
-  
-  // Gradient color stops
-  gradient.addColorStop(0, 'rgba(0, 255, 255, 0.3)');
-  gradient.addColorStop(0.3, 'rgba(255, 0, 150, 0.2)');
-  gradient.addColorStop(0.6, 'rgba(0, 255, 110, 0.15)');
-  gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
-
-  // Fill the canvas with the gradient
-  ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  requestAnimationFrame(createGradient);
-}
-
-createGradient();
-
-// Resize canvas on window size change
-window.addEventListener('resize', () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+    setTimeout(() => {
+      loader.style.display = "none";
+    }, 500); // fade-out complete hone ke baad
+  }, 500); // loader 0.5 second tak visible
 });
