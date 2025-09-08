@@ -25,7 +25,7 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
 **Deployment:**  
-![Vercel](https://password-gen-wine.vercel.app/)
+![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)
 
 ---
 
@@ -33,7 +33,7 @@
 
 | Desktop View | Mobile View |
 |--------------|-------------|
-| <img src="./screenshots/01_Home.png" alt="Homepage Screenshot" width="100%" /> | <img src="./screenshots/02_Responsive.png" alt="Mobile Screenshot" width="60%" /> |
+| <img src="./screenshots/01_Home.png" alt="Homepage Screenshot" width="100%" /> | <img src="./screenshots/02_Responsive.png" alt="Mobile Screenshot" width="90%" /> |
 
 ---
 
